@@ -33,7 +33,7 @@ ERC20 中给出了一个在eth中实现token的标准接口。
 发行token经常用于众筹，但是目前除了ICO没有发现很明确的应用途径。今天ICO，明天富家翁。
 
 ### 2.METAMASK
-Chrome有一个插件叫`metamask`，是一个插件式的eth钱包，可以接入eth主网，测试网，或者本地网。
+Chrome有一个插件叫[metamask](https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn)，是一个插件式的eth钱包，可以接入eth主网，测试网，或者本地网。
 
 ### 3.truffle
 
