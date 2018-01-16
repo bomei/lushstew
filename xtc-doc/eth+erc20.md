@@ -28,7 +28,7 @@ ERC20 中给出了一个在eth中实现token的标准接口。
 
 
 
-所谓实现token，也就是相当于发行一种新币了。Token的合约写起来简单，简单的比如[metacoin](https://github.com/truffle-box/metacoin-box/blob/master/contracts/MetaCoin.sol)，或者更加完善的如[FirstBlood Token](./src/firstbloodcoin.sol)。
+所谓实现token，也就是相当于发行一种新币了。Token的合约写起来简单，简单的比如[metacoin](https://github.com/truffle-box/metacoin-box/blob/master/contracts/MetaCoin.sol)，或者更加完善的如[FirstBlood Token](https://github.com/bomei/lushstew/blob/master/xtc-doc/src/firstbloodcoin.sol)。
 
 发行token经常用于众筹，但是目前除了ICO没有发现很明确的应用途径。今天ICO，明天富家翁。
 
