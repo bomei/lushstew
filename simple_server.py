@@ -108,10 +108,23 @@ async def handle_tolog(request):
     return web.json_response(resp)
 
 
+async def handle_index(request):
+    method = request.method
+    url = str(request.url)
+    headers = dict(request.headers)
+    data = await request.read()
+    data = data.decode()
+    params = dict(request.query)
+    print([method, url, headers, data, params], sep='\n')
+    return web.Response(
+        text=json.dumps({'method': method, 'url': url, 'headers': headers, 'data': data, 'params': params}), status=200)
+
+
 app = web.Application()
 app.router.add_route('POST', '/tolog', handle_tolog)
 app.router.add_get('/jwtex', handle)
 app.router.add_get('/jwtex/userinfo', handle_userinfo)
 app.router.add_get('/jwtex/gentoken', handle_gentoken)
 app.router.add_get('/jwtex/adduser', handle_new_user)
+app.router.add_route('*', '/', handle_index)
 web.run_app(app, port=44444)
