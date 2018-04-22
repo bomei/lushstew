@@ -86,7 +86,6 @@ async def handle_userinfo(request):
             return web.Response(text=json.dumps({'Status': 'True', 'Token': token, 'payload': payload}))
     return web.Response(text='token is blank')
 
-
 async def handle_tolog(request):
     data = await request.post()
     print(arrow.now())

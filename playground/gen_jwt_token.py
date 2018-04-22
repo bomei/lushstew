@@ -28,7 +28,7 @@ t/7kQ94wZnOQDADVbcHs9vU/YRvBHUxF9Uky/Gs+Uzm9
 """
 
 payload = {
-    'path': ['bee', 'yes', 'example.com', 'aiohttp', 'localhost:8080'],
+    'path': ['bee', 'yes', 'example.com', 'aiohttp', 'jenkins'],
 }
 
 token = jwt.encode(payload, pri, algorithm='RS256')
