@@ -20,6 +20,7 @@ async def handle_mongo_write(request):
 
 async def handle_mongo_read(request):
     data = await request.post()
+    print(data)
     mark = data.get('mark')
     doc = await db.test_collection.find_one({'mark': mark})
     print(doc)
