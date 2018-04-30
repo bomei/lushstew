@@ -23,6 +23,8 @@ async def handle_mongo_read(request):
     print(data)
     mark = data.get('mark')
     doc = await db.test_collection.find_one({'mark': mark})
+    if doc is None:
+        return web.json_response({})
     print(doc)
     del doc['_id']
     return web.json_response(doc)
