@@ -8,6 +8,7 @@ mongo_url = 'mongodb://localhost:27017'
 mongo_client = motor.motor_asyncio.AsyncIOMotorClient(mongo_url)
 db = mongo_client['test_db']
 
+session = aiohttp.ClientSession()
 
 class STATUS:
     FAIL = 'FAIL'
@@ -66,9 +67,17 @@ async def handle_mongo_signup(request):
             return web.json_response({'status': STATUS.FAIL, 'detail': 'insert db error'})
 
 
+async def handle_mongo_new_key(request):
+    async with session.get(
+            'https://www.random.org/integers/?num=32&min=0&max=15&col=32&base=2&format=plain&rnd=new') as resp:
+        text = await resp.text()
+        res = hex(int(text.replace('\t', '').replace('\n', ''), 2))[2:].upper()
+        return web.json_response(text=res)
+
 app = web.Application()
 app.router.add_post('/mongo/write', handle_mongo_write)
 app.router.add_post('/mongo/read', handle_mongo_read)
 app.router.add_post('/mongo/login', handle_mongo_login)
 app.router.add_post('/mongo/signup', handle_mongo_signup)
+app.router.add_post('/mongo/key', handle_mongo_new_key)
 web.run_app(app, port=3001)
